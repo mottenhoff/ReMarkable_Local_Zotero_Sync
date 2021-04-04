@@ -27,7 +27,7 @@ Then run `python rm_sync.py`
 The authentication code is only necessary the first run, so you can remove the code from the config afterwards.  
 
 ## Usage
-For manual single sync: `python rm_sync`  
+For manual single sync: `python rm_sync.py`  
 
 **Check periodically for updates:**  
 To run visibly: `python update_monitor.py`  
