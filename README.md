@@ -40,4 +40,4 @@ Then press `windows + R` and got to `shell:startup`. Copy a shortcut to `launche
 
 ### TODO
 * Sync Zotero collection structures
-* ...
+* handle PDF file annotations
