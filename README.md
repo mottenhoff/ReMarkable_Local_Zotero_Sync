@@ -1,6 +1,8 @@
 # ReMarkable Local Zotero sync
 Syncs your local Zotero storage to the ReMarkable Cloud service. Includes `.vbs` script to run autosync in the background.  
 
+---
+
 The script finds all PDF files in your local Zotero storage and mirrors them with a folder on the reMarkable Cloud.  
 
 It will:
