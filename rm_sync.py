@@ -66,9 +66,9 @@ def remove_files_from_remarkable(rmc, zotero_pdfs, rm_folders, rm_documents, fro
         rmc.delete(file)
         print('\tDONE')
 
-
 def sync():
     zotero_path = CONFIG['path_to_local_zotero_storage'] # Local storage
+    remarkable_folder_name = CONFIG["reMarkable_folder_name"]
     try:
         rmc = RMClient()
         rmc = check_remarkable_api_connection(rmc)
@@ -77,8 +77,10 @@ def sync():
         rm_folders, rm_documents = get_files_from_remarkable(rmc)
         
         # Mirror Zotero local storage with ReMarkable 2 
-        upload_new_files_to_remarkable(rmc, zotero_pdfs, rm_folders, rm_documents, to_rm_folder=get_folder_object('Papers', rm_folders))
-        remove_files_from_remarkable(rmc, zotero_pdfs, rm_folders, rm_documents, from_rm_folder=get_folder_object('Papers', rm_folders))
+        upload_new_files_to_remarkable(rmc, zotero_pdfs, rm_folders, rm_documents, 
+                                      to_rm_folder=get_folder_object(remarkable_folder_name, rm_folders))
+        remove_files_from_remarkable(rmc, zotero_pdfs, rm_folders, rm_documents,
+                                     from_rm_folder=get_folder_object(remarkable_folder_name, rm_folders))
     except Exception:
         return
 
