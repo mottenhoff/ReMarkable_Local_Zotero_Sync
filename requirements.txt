@@ -1,0 +1,2 @@
+rmapy==0.2.4
+schedule==1.0.0
