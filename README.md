@@ -1,4 +1,4 @@
-# ReMarkable_Zotero_sync
+# ReMarkable Local Zotero sync
 Syncs your local Zotero storage to the ReMarkable Cloud service. Includes `.vbs` script to run autosync in the background.  
 
 The script finds all PDF files in your local Zotero storage and mirrors them with a folder on the reMarkable Cloud.  
@@ -33,4 +33,9 @@ To run invisible: `pythonw update_monitor.py`
 
 **To start autosync in the background at startup:**  
 Edit `launcher.vbs` and add the path to your `pythonw.exe` interpreter and the path to `update_monitor.py`  
-Then press `windows + R` and got to `shell:startup`. Copy a shortcut to `launcher.vbs` into the startup folder.  
+Then press `windows + R` and got to `shell:startup`. Copy a shortcut to `launcher.vbs` into the startup folder.
+
+
+### TODO
+* Sync file structures
+* ...
