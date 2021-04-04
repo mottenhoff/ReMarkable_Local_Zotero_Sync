@@ -37,5 +37,5 @@ Then press `windows + R` and got to `shell:startup`. Copy a shortcut to `launche
 
 
 ### TODO
-* Sync file structures
+* Sync Zotero collection structures
 * ...
