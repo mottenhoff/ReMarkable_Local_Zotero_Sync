@@ -1,4 +1,4 @@
-# ReMarkable Local Zotero sync
+# ReMarkable Local Zotero Sync
 Syncs your local Zotero storage to the ReMarkable Cloud service. Includes `.vbs` script to run autosync in the background.  
 
 ---
