@@ -9,10 +9,10 @@ from config import config
 
 CONFIG = config()
 
-def check_remarkable_api_connection(Client):
-    if not Client.is_auth():
-        Client.register_device(CONFIG["Remarkable_auth_code"])
-    return Client
+def check_remarkable_api_connection(client):
+    if not client.is_auth():
+        client.register_device(CONFIG["Remarkable_auth_code"])
+    return client
 
 def get_files_from_remarkable(rmc):
     try:
@@ -20,7 +20,7 @@ def get_files_from_remarkable(rmc):
     except Exception:
         print('Response 401: Renewing token')
         rmc.renew_token()
-        all_items = rmc.meta_items()
+        all_items = rmc.get_meta_items()
 
     folders = [f for f in all_items if isinstance(f, Folder)]
     documents = [f for f in all_items if isinstance(f, Document)]
