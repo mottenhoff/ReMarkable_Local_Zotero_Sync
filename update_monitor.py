@@ -34,27 +34,25 @@ def get_idle_duration():
 
 def wait_for_idle(n_seconds, wait_interval):
     while get_idle_duration() < n_seconds:
+        print('Idle: {}'.format(get_idle_duration()))
         time.sleep(wait_interval)
 
 def check():
     file_log_name = './file_log.pkl'
     zotero_path = CONFIG['path_to_local_zotero_storage']
     zotero_pdfs = [file.stem for file in get_files_from_zotero_storage(zotero_path)]
-
+    
     if path.exists(file_log_name):
         with open(file_log_name, 'rb') as f:
             logged_pdfs = pickle.load(f)
+        start_sync = True if not zotero_pdfs == logged_pdfs else False
+    else:
+        start_sync = True
 
-        if not zotero_pdfs == logged_pdfs:
-            wait_for_idle(CONFIG['wait_for_n_seconds_idle'], 1)
-            sync()
-            pdfs_are_updated = True
-        else:
-            pdfs_are_updated = False
+    if start_sync:
+        wait_for_idle(CONFIG['wait_for_n_seconds_idle'], 1)
+        sync()
 
-    if not path.exists(file_log_name)\
-        or pdfs_are_updated:     
-        
         with open(file_log_name, 'wb') as f:
             pickle.dump(zotero_pdfs, f)
     
